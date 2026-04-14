@@ -1,33 +1,17 @@
-package com.dudumarquess.order_management_api.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package com.dudumarquess.order_management_api.dto;
 
-@Entity
-public class Product {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductDto {
     private Long id;
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false)
     private Double price;
-
-    @Column(nullable = false)
     private Integer stock;
-    
     private String description;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
+    public ProductDto(Long id, String name, Double price, Integer stock, String description) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
         this.description = description;
     }
 
@@ -63,5 +47,11 @@ public class Product {
         this.stock = stock;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
